@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleção de Livros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coleção de Livros de Ana</h1>
+    <input type="text" id="tituloLivro" placeholder="Digite o título do livro">
+    <button onclick="adicionarLivro()">Adicionar Livro</button>
+    <ul id="listaLivros"></ul>
+
+    <script>
+        var livros = []; // Array para armazenar os títulos dos livros
+
+        function adicionarLivro() {
+            var tituloInput = document.getElementById('tituloLivro');
+            var titulo = tituloInput.value;
+
+            if (titulo.trim() !== '') {
+                livros.push(titulo); // Adiciona o título do livro ao array
+                exibirListaLivros(); // Atualiza a exibição da lista de livros
+                tituloInput.value = ''; // Limpa o campo de entrada
+            }
+        }
+
+        function exibirListaLivros() {
+            var lista = document.getElementById('listaLivros');
+            lista.innerHTML = ''; // Limpa a lista antes de recriá-la
+
+            for (var i = 0; i < livros.length; i++) {
+                var livro = livros[i];
+                var novoLivro = document.createElement('li');
+                novoLivro.textContent = livro;
+                lista.appendChild(novoLivro);
+            }
+        }
+    </script>
+</body>
+</html>

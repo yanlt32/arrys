@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Compras</title>
+</head>
+<body>
+    <h1>Lista de Compras</h1>
+
+    <input type="text" id="item" placeholder="Digite o item">
+    <button onclick="adicionarItem()">Adicionar à Lista</button>
+
+    <h2>Lista de Compras:</h2>
+    <ul id="listaCompras"></ul>
+
+
+    <script>
+        const listaCompras = [];
+
+        function adicionarItem() {
+            const itemInput = document.getElementById("item");
+            const item = itemInput.value.trim();
+
+            if (item !== "") {
+                listaCompras.push(item);
+                itemInput.value = "";
+                exibirLista();
+            }
+        }
+
+        function exibirLista() {
+            const listaElement = document.getElementById("listaCompras");
+            listaElement.innerHTML = "";
+
+            for (let i = 0; i < listaCompras.length; i++) {
+                const item = listaCompras[i];
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                listaElement.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
+
+    </script>
+</body>
+</html>

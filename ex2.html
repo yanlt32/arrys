@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendário de Eventos</title>
+</head>
+<body>
+    <h1>Calendário de Eventos</h1>
+
+    <h2>Domingo</h2>
+    <input type="text" id="domingoEvento">
+    <button onclick="adicionarEvento('domingo')">Adicionar Evento</button>
+    <ul id="listaDomingo"></ul>
+
+    <h2>Segunda-feira</h2>
+    <input type="text" id="segundaEvento">
+    <button onclick="adicionarEvento('segunda')">Adicionar Evento</button>
+    <ul id="listaSegunda"></ul>
+
+    <h2>Terça-feira</h2>
+    <input type="text" id="tercaEvento">
+    <button onclick="adicionarEvento('terca')">Adicionar Evento</button>
+    <ul id="listaTerca"></ul>
+
+    <h2>Quarta-feira</h2>
+    <input type="text" id="quartaEvento">
+    <button onclick="adicionarEvento('quarta')">Adicionar Evento</button>
+    <ul id="listaQuarta"></ul>
+
+    <h2>Quinta-feira</h2>
+    <input type="text" id="quintaEvento">
+    <button onclick="adicionarEvento('quinta')">Adicionar Evento</button>
+    <ul id="listaQuinta"></ul>
+
+    <h2>Sexta-feira</h2>
+    <input type="text" id="sextaEvento">
+    <button onclick="adicionarEvento('sexta')">Adicionar Evento</button>
+    <ul id="listaSexta"></ul>
+
+    <h2>Sábado</h2>
+    <input type="text" id="sabadoEvento">
+    <button onclick="adicionarEvento('sabado')">Adicionar Evento</button>
+    <ul id="listaSabado"></ul>
+
+    <script>
+        function adicionarEvento(dia) {
+            var eventoInput = document.getElementById(dia + 'Evento');
+            var evento = eventoInput.value;
+
+            if (evento.trim() !== '') {
+                var lista = document.getElementById('lista' + dia.charAt(0).toUpperCase() + dia.slice(1));
+                var novoEvento = document.createElement('li');
+                novoEvento.textContent = evento;
+                lista.appendChild(novoEvento);
+                eventoInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
